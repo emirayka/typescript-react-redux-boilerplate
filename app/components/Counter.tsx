@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import styles from './Counter.module.scss'
+
 type Props = {
   counter: number
   label: string
@@ -26,7 +28,7 @@ export class Counter extends React.Component<Props, State> {
     } = this.props
 
     return (
-      <div>
+      <div className={styles.counter}>
         <span>
           {label}: {counter}
         </span>
