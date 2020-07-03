@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "ES2018",
     "moduleResolution": "node",
     "module": "commonjs",
     "jsx": "react",
@@ -21,6 +21,10 @@
     "emitDecoratorMetadata": true,
 
     "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["app/*"]
+    },
 
     "outDir": "dist"
   },

@@ -1,18 +1,46 @@
 import * as React from 'react'
-import {Provider} from 'react-redux'
+import {
+  Switch,
+  Route,
+} from 'react-router-dom'
+import {ConnectedRouter} from 'connected-react-router'
+import { History } from 'history'
 
-import store from './store'
+import styles from './App.module.scss'
+import './App.scss'
 
-import {CounterConnected} from './containers'
+import {
+  CatView,
+  CounterView,
+  Error404View
+} from './views'
 
-export class App extends React.Component<{}, {}> {
-  render()  {
-    return (
-      <div>
-        <Provider store={store}>
-          <CounterConnected label={'Counter'}/>
-        </Provider>
-      </div>
-    )
-  }
+type Props = {
+  context: any
+  history: History<any>
+}
+
+export const App: React.FC<Props> = (props) => {
+  return (
+    <div className={styles.app}>
+      <ConnectedRouter
+        history={props.history}
+        context={props.context}
+      >
+        <Switch>
+          <Route path={'/cat'}>
+            <CatView />
+          </Route>
+          
+          <Route exact path={'/'}>
+            <CounterView />
+          </Route>
+          
+          <Route>
+            <Error404View />
+          </Route>
+        </Switch>
+      </ConnectedRouter>
+    </div>
+  )
 }

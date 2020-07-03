@@ -1,21 +1,37 @@
-import * as Types from '../types'
-import {connect} from 'react-redux'
+import * as React from 'react'
+import * as Redux from 'redux'
+
+import {useDispatch, useSelector} from 'react-redux'
+
 import {Counter} from '../components'
 
 import {
   countersActions,
-  countersSelectors
-} from '../features/counters'
+} from '@/store/features/counters'
 
-const mapStateToProps = (state: Types.RootState) => ({
-  counter: countersSelectors.getCounter(state.counters)
-})
-
-const dispatchProps = {
-  onIncrement: () => countersActions.increment()
+type Props = {
+  label: string
 }
 
-export const CounterConnected = connect(
-  mapStateToProps,
-  dispatchProps
-)(Counter)
+import {RootState} from '../types'
+
+export const CounterConnected: React.FC<Props> = (props) => {
+  const dispatch: Redux.Dispatch = useDispatch()
+  const state: any = useSelector<RootState>((state: RootState) => state)
+
+  const {
+    label
+  } = props
+  const counter: number = state.counters.counter
+  const onIncrement = () => dispatch(countersActions.increment())
+  const onIncrementAsync = () => dispatch(countersActions.incrementAsync())
+
+  return (
+    <Counter
+      label={label}
+      counter={counter}
+      onIncrement={onIncrement}
+      onIncrementAsync={onIncrementAsync}
+    />
+  )
+}

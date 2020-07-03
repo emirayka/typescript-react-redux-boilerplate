@@ -14,7 +14,7 @@ export default combineReducers<CountersState, CountersAction>({
   counter: (state = 2, action) => {
     switch (action.type) {
       case ADD:
-        return state + action.payload
+        return state + action.payload.amount
 
       case INCREMENT:
         return state + 1

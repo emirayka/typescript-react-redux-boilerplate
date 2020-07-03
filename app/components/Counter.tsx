@@ -6,37 +6,30 @@ type Props = {
   counter: number
   label: string
   onIncrement: () => void
+  onIncrementAsync: () => void
 }
 
-type State = {
-}
+export const Counter: React.FC<Props> = (props) => {
+  const {
+    counter,
+    label,
+    onIncrement,
+    onIncrementAsync,
+  } = props
 
-export class Counter extends React.Component<Props, State> {
-  readonly state: State = {
-  }
-
-  handleOnIncrement(): void {
-    this.props.onIncrement()
-  }
-
-  render(): React.ReactNode  {
-    const handleOnIncrement = this.handleOnIncrement.bind(this)
-
-    const {
-      counter,
-      label
-    } = this.props
-
-    return (
-      <div className={styles.counter}>
+  return (
+    <div className={styles.counter}>
         <span>
           {label}: {counter}
         </span>
 
-        <button onClick={handleOnIncrement}>
-          Increment
-        </button>
-      </div>
-    )
-  }
+      <button onClick={onIncrement}>
+        Increment
+      </button>
+
+      <button onClick={onIncrementAsync}>
+        Increment async
+      </button>
+    </div>
+  )
 }
