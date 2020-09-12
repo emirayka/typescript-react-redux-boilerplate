@@ -15,6 +15,6 @@ function* watchIncrementAsync() {
 
 export function* watchCounter() {
   yield all([
-    watchIncrementAsync()
+    watchIncrementAsync(),
   ])
 }

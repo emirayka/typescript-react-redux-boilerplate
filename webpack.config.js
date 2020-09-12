@@ -1,14 +1,15 @@
-const path = require('path');
-const webpack = require('webpack');
+/* eslint @typescript-eslint/no-var-requires: 0 */
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const webpack = require('webpack')
 
-const isProduction = process.env.NODE_ENV === 'production';
-const analyzeBundle = process.env.ANALYZE === 'true';
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+const isProduction = process.env.NODE_ENV === 'production'
+const analyzeBundle = process.env.ANALYZE === 'true'
 
 module.exports = {
   context: __dirname,
@@ -54,8 +55,8 @@ module.exports = {
       { test: /\.(a?png|svg)$/, use: 'url-loader?limit=10000' },
       {
         test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
-        use: 'file-loader'
-      }
+        use: 'file-loader',
+      },
     ],
   },
   plugins: [
@@ -74,7 +75,7 @@ module.exports = {
     port: 9111,
     hot: true,
     historyApiFallback: {
-      index: 'index.html'
+      index: 'index.html',
     },
     overlay: true,
     stats: 'minimal',

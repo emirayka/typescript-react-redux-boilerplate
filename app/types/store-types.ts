@@ -1,5 +1,5 @@
 import {
-  CountersState
+  CountersState,
 } from '@/store/features/counters'
 
 export type RootState = {

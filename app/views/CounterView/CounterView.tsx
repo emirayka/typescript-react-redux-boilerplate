@@ -3,9 +3,7 @@ import * as React from 'react'
 import './CounterView.css'
 import { Counter } from '@/components'
 
-type Props = {}
-
-export const CounterView: React.FC<Props> = () => {
+export const CounterView: React.FC = () => {
   return (
     <div className="counter-wrapper">
       <Counter label={'Counter'} />

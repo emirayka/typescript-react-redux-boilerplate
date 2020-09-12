@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import {createBrowserHistory, History} from 'history'
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {BrowserHistory, createBrowserHistory} from 'history'
+import {composeWithDevTools} from 'redux-devtools-extension'
 import {routerMiddleware} from 'connected-react-router'
 
 import createRootReducer from './root-reducer'
@@ -10,7 +10,7 @@ import * as rootActions from './root-actions'
 
 import rootSaga from './root-saga'
 
-export const history: History<any> = createBrowserHistory()
+export const history: BrowserHistory = createBrowserHistory()
 const sagaMiddleware = createSagaMiddleware()
 
 const isProduction: boolean = process.env.MODE === 'production'

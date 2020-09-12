@@ -22,5 +22,5 @@ export default combineReducers<CountersState, CountersAction>({
       default:
         return state
     }
-  }
+  },
 })
