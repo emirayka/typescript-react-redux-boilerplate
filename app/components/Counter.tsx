@@ -1,33 +1,34 @@
 import * as React from 'react'
 
-import styles from './Counter.module.scss'
+import {useDispatch, useSelector} from 'react-redux'
+import {selectCounter} from '@/store/root-selectors'
+import {increment, incrementAsync} from '@/store/features/counters/actions'
 
-type Props = {
-  counter: number
+import './Counter.css'
+
+type CounterProps = {
   label: string
-  onIncrement: () => void
-  onIncrementAsync: () => void
 }
 
-export const Counter: React.FC<Props> = (props) => {
+export const Counter: React.FC<CounterProps> = (props) => {
   const {
-    counter,
     label,
-    onIncrement,
-    onIncrementAsync,
   } = props
 
+  const counter = useSelector(selectCounter)
+  const dispatch = useDispatch()
+
   return (
-    <div className={styles.counter}>
+    <div className="counter">
         <span>
           {label}: {counter}
         </span>
 
-      <button onClick={onIncrement}>
+      <button onClick={() => dispatch(increment())}>
         Increment
       </button>
 
-      <button onClick={onIncrementAsync}>
+      <button onClick={() => dispatch(incrementAsync())}>
         Increment async
       </button>
     </div>

@@ -8,7 +8,7 @@ import createRootReducer from './root-reducer'
 import * as rootSelectors from './root-selectors'
 import * as rootActions from './root-actions'
 
-import rootSaga from './sagas'
+import rootSaga from './root-saga'
 
 export const history: History<any> = createBrowserHistory()
 const sagaMiddleware = createSagaMiddleware()

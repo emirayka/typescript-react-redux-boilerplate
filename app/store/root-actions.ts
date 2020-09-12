@@ -1,5 +1,1 @@
-import {countersActions} from './features/counters'
-
-export {
-  countersActions as counters
-}
+export * as counters from './features/counters/actions'

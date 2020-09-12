@@ -1,3 +1,3 @@
-import {CountersState} from './reducer'
+import {RootState} from '@/types'
 
-export const getCounter = (state: CountersState) => state.counter
+export const selectCounter = (state: RootState) => state.counters.counter

@@ -37,34 +37,16 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            query: {
-              sourceMap: !isProduction,
-              importLoaders: 1,
-              modules: {
-                localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
-              }
-            }
-          },
+          'style-loader',
+          'css-loader',
           'postcss-loader',
         ],
       },
       {
         test: /\.scss$/i,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            query: {
-              sourceMap: !isProduction,
-              importLoaders: 1,
-              modules: {
-                localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
-              }
-            }
-          },
+          'style-loader',
+          'css-loader',
           'postcss-loader',
           'sass-loader',
         ],
@@ -85,10 +67,6 @@ module.exports = {
     }),
     isProduction ? false : new webpack.HotModuleReplacementPlugin(),
     analyzeBundle ? new BundleAnalyzerPlugin() : false,
-    new MiniCssExtractPlugin({
-      filename: '[hash].css',
-      disable: !isProduction
-    }),
   ].filter(Boolean),
   devtool: isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',
   devServer: {

@@ -4,7 +4,7 @@ import {rootActions} from '@/store'
 
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms))
 
-export function* incrementAsync() {
+function* incrementAsync() {
   yield delay(1000)
   yield put(rootActions.counters.increment())
 }
@@ -13,7 +13,7 @@ function* watchIncrementAsync() {
   yield takeEvery(INCREMENT_ASYNC, incrementAsync)
 }
 
-export default function*() {
+export function* watchCounter() {
   yield all([
     watchIncrementAsync()
   ])

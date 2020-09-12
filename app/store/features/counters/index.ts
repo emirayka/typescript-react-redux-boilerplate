@@ -1,13 +1,15 @@
-import * as countersConstants from './constants'
-import * as countersActions from './actions'
-import countersReducer from './reducer'
-import * as countersSelectors from './selectors'
+import * as constants from './constants'
+import * as actions from './actions'
+import reducer from './reducer'
+import * as selectors from './selectors'
+import * as sagas from './sagas'
 
-export {
-  countersConstants,
-  countersActions,
-  countersReducer,
-  countersSelectors
+export default {
+  constants,
+  actions,
+  reducer,
+  selectors,
+  sagas,
 }
 
 export * from './reducer'

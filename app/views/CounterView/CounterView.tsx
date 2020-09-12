@@ -1,14 +1,14 @@
 import * as React from 'react'
 
-import styles from './CounterView.module.scss'
-import { CounterConnected } from '@/containers'
+import './CounterView.css'
+import { Counter } from '@/components'
 
 type Props = {}
 
 export const CounterView: React.FC<Props> = () => {
   return (
-    <div className={styles.counterWrapper}>
-      <CounterConnected label={'Counter'} />
+    <div className="counter-wrapper">
+      <Counter label={'Counter'} />
     </div>
   )
 }

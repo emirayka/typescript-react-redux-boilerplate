@@ -2,11 +2,11 @@ import {combineReducers} from 'redux'
 import {connectRouter} from 'connected-react-router'
 import {History} from 'history'
 
-import {countersReducer, CountersState} from './features/counters'
+import countersFeature, {CountersState} from './features/counters'
 
 const createRootReducer = (history: History<any>) => combineReducers({
   router: connectRouter(history),
-  counters: countersReducer
+  counters: countersFeature.reducer,
 })
 
 export type RootState = {
