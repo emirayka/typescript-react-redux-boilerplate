@@ -6,8 +6,7 @@ import {
 import {ConnectedRouter} from 'connected-react-router'
 import { History } from 'history'
 
-import styles from './App.module.scss'
-import './App.scss'
+import './App.css'
 
 import {
   CatView,
@@ -22,7 +21,7 @@ type Props = {
 
 export const App: React.FC<Props> = (props) => {
   return (
-    <div className={styles.app}>
+    <div className="app">
       <ConnectedRouter
         history={props.history}
         context={props.context}
