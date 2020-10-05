@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import {useDispatch, useSelector} from 'react-redux'
 import {selectCounter} from '@/store/root-selectors'
-import {increment, incrementAsync} from '@/store/features/counters/actions'
+import {increment} from '@/store/features/counters/actions'
 
 import './Counter.css'
 
@@ -28,7 +28,11 @@ export const Counter: React.FC<CounterProps> = (props) => {
         Increment
       </button>
 
-      <button onClick={() => dispatch(incrementAsync())}>
+      <button onClick={() => {
+        setTimeout(() => {
+          dispatch(increment())
+        }, 1000)
+      }}>
         Increment async
       </button>
     </div>
